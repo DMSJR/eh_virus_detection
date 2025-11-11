@@ -2,7 +2,7 @@
 
 
 # Paths
-FASTQ_PATH="../bowtie2"       # where the Bowtie2 files are
+FASTQ_PATH="../nonhuman_reads"       # where the filtered files are
 IDS_PATH="."                  # where the *_unclassified_ids.txt lists are
 OUT_PATH="."                  # output folder for FASTQs
 
@@ -12,8 +12,8 @@ for ids in ${IDS_PATH}/*_unclassified_ids.txt; do
 
     echo "🔎 Processing $sample ..."
 
-    fq1="$FASTQ_PATH/${sample}_bt2_filtered.1"
-    fq2="$FASTQ_PATH/${sample}_bt2_filtered.2"
+    fq1="$FASTQ_PATH/${sample}_nonhuman_R1.fastq"
+    fq2="$FASTQ_PATH/${sample}_nonhuman_R2.fastq"
 
     if [[ ! -f "$fq1" || ! -f "$fq2" ]]; then
         echo "❌ FASTQs not found for $sample"
